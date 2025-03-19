@@ -34,5 +34,69 @@ Solution:
 DOCKER - Writing a simple dockerfile in a linux shell
 
 1. create a Dockerfile
-  # touch Dockerfile
+   # touch Dockerfile
+
+2. Edit the Dockerfile with the following content ( for nginx based image)
+   # FROM nginx:latest
+   # COPY index.html /usr/share/nginx/html/index.html
+   # EXPOSE 80
+   # CMD ["nginx", "-g", "daemon off;"]
+
+3. build the docker image
+   # docker build -t my-nginx .
+
+4. Run the container
+   # docker run -d -p 8080:80 my-nginx
+
+5. Verify †he container
+   # docker ps
+
+RESTFUL APIS- BEST PRACTICES
+BASICALLY YOU JUST NEED TO UNDERSTAND THE RESTFUL APIS BEST PRACTICES:
+# USE PROPER HTTP METHODS
+GET - RETRIEVE DATA
+POST - CREATE NEW DATA
+PUT - UPDATE EXISTING DATA
+DELETE - REMOVE DATA
+
+# USE MEANINGFUL URL STRUCTURES
+# RETURN PROPER HTTP STATUS CODE
+# USE JSON FOR RESPONSES
+
+TERRAFORM - PROVISION AN EC2
+1. initialize a new terraform configuration file
+   # touch main.tf
+
+2. Edit main.tf to provision ec2 you can find config formula in https://registry.terraform.io
+# provider "aws" {
+  # region = "us-east-1"
+# }
+#
+# resource "aws_instance" "web" {
+#   ami           = "ami-0c55b159cbfafe1f0"  # Update with latest AMI
+  # instance_type = "t2.micro"
+  # tags = {
+   #  Name = "TerraformInstance"
+  # }
+# }
+
+3. initialize terraform
+   # terraform init
+
+4. plan the script
+   # terraform plan
+
+5. apply the config
+   # terraform apply
+
+6. destroy when done
+   # terraform destroy
+
+
+
+
+   
+
+
+
 
